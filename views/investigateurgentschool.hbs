@@ -1,0 +1,26 @@
+<h2>CASE REPORT:</h2>
+  <h4>{{firstname}} {{middlename}} {{lastname}}</h4>
+  
+<div class="row">
+    <div class="col-md-3">
+        <h5>Gender:</h5>
+        <p>{{gender}}</p>
+    </div>
+    <!--div class="col-md-3">
+        <h5>Age:</h5>
+        <p>{{dateofbirth}}</p>
+    </div-->
+</div>
+  
+<p>Average Grade: {{avg}}</p>
+
+<p>Behaviour Rating:{{behaviour}}/25</p>
+
+<h5>Case Notes History:</h5>
+<ol>
+    {{#each snotes}}
+        <li>
+            <strong>{{this.snotes}}</strong> <br>Date of entry: {{this.dateofreport}}<br>
+        </li>
+        {{/each}}
+</ol>

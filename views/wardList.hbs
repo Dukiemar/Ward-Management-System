@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-8">
+        <h3><a class="btn btn-secondary" href="/createRecord"><i class="fa fa-plus" ></i> Add Record</a> Wards</h3>
+    </div>
+    <div class="col-md-4">
+        <h3><a class="btn btn-warning" href="/urgent"><i class="fa fa-exclamation-triangle" ></i>MEDICAL<span class="badge badge-light">{{this.wardcount}}</span> </a></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <h3><a class="btn btn-warning" href="/urgentschool"><i class="fa fa-exclamation-triangle" ></i>SCHOOL <span class="badge badge-light">{{this.wardcountschool}}</span> </a></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <h3><a class="btn btn-warning" href="/urgenthome"><i class="fa fa-exclamation-triangle" ></i>HOME    <span class="badge badge-light">{{this.wardcounthome}}</span> </a></h3>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Case ID</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.firstname}}</td>
+            <td>{{this.middlename}}</td>
+            <td>{{this.lastname}}</td>
+            <td>
+                <h3><a class="btn btn-secondary" href="/view/{{this.id}}"><i class="fa fa-eye" ></i> View</a></h3>
+            </td>
+            <td>
+                <a href="/update/{{this.id}}"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+                <!--a href="/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this member?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a-->
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<!--h3><a class="btn btn-secondary" href="/addRoute"><i class="fa fa-plus"></i> Routes</a></h3>
+<a class="btn btn-secondary" href="/allRoutes"></i> View Routes</a-->
+

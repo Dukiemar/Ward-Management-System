@@ -1,0 +1,124 @@
+<div class="row">
+    <div class="col-md-2">
+        <h3><a class="btn btn-secondary" href="/"><i class="fa fa-chevron-left" ></i> Back</a></h3>
+    </div>
+     <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <p><a class="btn btn-primary" href="/medical/{{id}}"><i class="fa fa-plus"></i> Medical Notes</a></p>
+     </div>
+     <div class="col-md-3">
+        <p><a class="btn btn-primary" href="/school/{{id}}"><i class="fa fa-plus"></i> School Notes</a></p>
+    </div>
+     <div class="col-md-3">
+        <p><a class="btn btn-primary" href="/home/{{id}}"><i class="fa fa-plus"></i> Home Notes</a></p>
+    </div>
+    
+</div>
+  <h2>PROFILE VIEW</h2> 
+  <h4>{{this.firstname}} {{middlename}} {{lastname}}</h4>
+  <p><a class="btn btn-info" href="/map/{{id}}"><i class="fa fa-map-marker"></i> Whereabouts</a></p>
+  <p><a class="btn btn-info" href="/viewtrack"><i class="fa fa-map-marker"></i> Realtime Tracker</a></p>
+  <p><a class="btn btn-link" href="/track/{{id}}">Start Tracker</a></p>
+  
+<span class="blinking"><b>PLACEMENT RECOMMENDATION:</b>
+ <p>{{reco}} <br> {{reco1}} <br>{{reco2}} <br><br>Distance to School: {{reco3}} km <br>Distance to Family home: {{reco4}} km</p></span>
+<div class="row">
+    <div class="col-md-3">
+        <h5>Gender:</h5>
+        <p>{{gender}}</p>
+    </div>
+    <!--div class="col-md-3">
+        <h5>Age:</h5>
+        <p>{{dateofbirth}}</p>
+    </div-->
+</div>
+  
+<h5>Address:</h5>
+<p>{{address}}, {{parish}}</p> 
+  
+<h5>School:</h5>
+<p>{{schoolname}}</p>
+
+<h5>School Address:</h5>
+<p>{{schooladdress}}, {{schoolparish}}</p> 
+
+
+<h5>Medical Conditions:</h5>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Diabetes: {{diabetes}}</p>
+        </div>
+        <div class="col-md-4">
+            <p>Heart Disease: {{heartdisease}}</p>
+        </div>
+        <div class="col-md-4">
+            <p>Cancer: {{cancer}}</p>
+        </div>
+        <div class="col-md-4">
+            <p>Epilepsy: {{epilepsy}}</p>
+        </div>
+        <div class="col-md-4">
+            <p>Blood Disorder: {{blooddisorder}}</p>     
+        </div> 
+        <div class="col-md-4">
+            <p>Sicklecell: {{Sicklecell}}</p>     
+        </div> 
+  </div> 
+
+<h5>Known Disabilities</h5>
+<p>1: {{disability1}}</p> 
+<p>2: {{disability2}}</p>
+
+<h5>Current Placement:</h5> 
+<p>{{placement}}</p>
+
+<form  action="/place/{{id}}" method="POST">
+<input type="hidden" name="id" value= {{id}} >
+ <div class="form-group">
+    <label for="placement"><h5>Add/Update Placement:</h5></label>
+    <select class="form-control" name="placement" id="placement">
+            <option value="none" selected disabled hidden> --Select-- </option>
+            {{#each list}}
+            <option value={{this.homeid}}>{{this.homename}}</option>
+            {{/each}}
+    </select>
+ </div>
+ <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit Placement</button>
+ </div>
+</form>
+
+<form  action="/view/{{id}}" method="POST">
+<input type="hidden" name="id" value= {{id}} >
+ <div class="form-group">
+    <label for="notes"><h5>Add Notes:</h5></label>
+    <textarea class="form-control" name="notes" id="notes" rows="3"></textarea>
+ </div>
+ <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit Case notes</button>
+ </div>
+</form>
+
+<h5>Case Notes:</h5>
+<ol>
+    {{#each notes}}
+        <li>
+            <strong>{{this.notes}}</strong>
+        </li>
+        {{/each}}
+</ol>
+
+<!--table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Case Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each notes}}
+        <tr>
+            <td>{{this.notes}}</td> 
+        </tr>
+        {{/each}}
+    </tbody>
+</table-->

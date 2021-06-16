@@ -1,0 +1,256 @@
+<h3>{{viewTitle}}</h3>
+<h4>Demographic Information</h4>
+<form action="/createRecord" method="POST"  autocomplete="off">
+    <!--input type="hidden" name="memberid"--> <!--to facilitate updating-->
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="firstname" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Middle Name</label>
+            <input type="text" class="form-control" name="middlename" placeholder="Middle Name">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+        </div>
+    </div>
+
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="gender">Gender</label>
+        <select class="form-control" name="gender" id="gender">
+            <option value="none" selected disabled hidden> Select an Option </option> 
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" name="dateofbirth" placeholder="Date of Birth">
+    </div>
+</div>
+
+    <div class="form-group">
+            <label>Address Street/Town/City</label>
+            <input type="text" class="form-control" name="address" id="address" placeholder="Address">
+    </div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="parish">Parish</label>
+        <select onchange="getCoordinatesHome()" class="form-control" name="parish" id="parish">
+            <option value="none" selected disabled hidden> Select Parish </option> 
+            <option value="Kingston">Kingston</option>
+            <option value="St.Andrew">St.Andrew</option>
+            <option value="St.Catherine">St.Catherine</option>
+            <option value="Clarendon">Clarendon</option>
+            <option value="Manchester">Manchester</option>
+            <option value="St.Elizabeth">St.Elizabeth</option>
+            <option value="Westmoreland">Westmoreland</option>
+            <option value="Hanover">Hanover</option>
+            <option value="St.James">St.James</option>
+            <option value="Trelawny">Trelawny</option>
+            <option value="St.Ann">St.Ann</option>
+            <option value="St.Mary">St.Mary</option>
+            <option value="Portland">Portland</option>
+            <option value="St.Thomas">St.Thomas</option>
+        </select>
+    </div>
+    <div class="form-group col-md-3">
+    <input type="text" name="lat1" id="lat1" readonly>
+    <input type="text" name="lon1" id="lon1" readonly>
+    </div>
+    
+</div>
+
+<div class="form-group">
+     <div class="custom-file col-md-6">
+        <input type="file" class="custom-file-input" name="customfile" id="customfile">
+        <label class="custom-file-label" for="customfile">Choose Photo to upload</label>
+    </div>
+</div >
+<!--Medical record-->
+<h4>Medical Record</h4>
+<div class="form-row">
+<div class="form-group col-md-4">
+        <label for="sicklecell">Sickle Cell</label>
+        <select class="form-control" name="sicklecell" id="sicklecell">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+</div>
+<div class="form-group col-md-4">
+        <label for="diabetes">Diabetes</label>
+        <select class="form-control" name="diabetes" id="diabetes">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+</div>
+<div class="form-group col-md-4">
+        <label for="heartdisease">Heart Disease</label>
+        <select class="form-control" name="heartdisease" id="heartdisease">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+</div>
+<div class="form-group col-md-4">
+        <label for="cancer">Cancer</label>
+        <select class="form-control" name="cancer" id="cancer">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+</div>
+<div class="form-group col-md-4">
+        <label for="epilepsy">Epilepsy</label>
+        <select class="form-control" name="epilepsy" id="epilepsy">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+</div>
+<div class="form-group col-md-4">
+        <label for="blooddisorder">Blood Disorder</label>
+        <select class="form-control" name="blooddisorder" id="blooddisorder">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+</div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="disability">Disability(Y/N)</label>
+        <select class="form-control" name="disability" id="disability">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label for="Disability1">Disability</label>
+        <select class="form-control" name="disability1" id="disability1">
+            <option value="none" selected>N/A</option> 
+            <option value="Vision Impairment">Vision Impairment</option>
+            <option value="deaf or hard of hearing">Deaf or hard of hearing</option>
+            <option value="mental health conditions">Mental health conditions</option>
+            <option value="intellectual disability">Intellectual disability</option>
+            <option value="acquired brain injury">Acquired brain injury</option>
+            <option value="autism spectrum disorder">Autism spectrum disorder</option>
+            <option value="physical disability">Physical disability</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+         <label for="Disability2">Disability(additional)</label>
+        <select class="form-control" name="disability2" id="disability2">
+            <option value="none" selected>N/A</option> 
+            <option value="vision impairment">Vision Impairment</option>
+            <option value="deaf or hard of hearing">Deaf or hard of hearing</option>
+            <option value="mental health conditions">Mental health conditions</option>
+            <option value="intellectual disability">Intellectual disability</option>
+            <option value="acquired brain injury">Acquired brain injury</option>
+            <option value="autism spectrum disorder">Autism spectrum disorder</option>
+            <option value="physical disability">Physical disability</option>
+        </select>
+    </div>
+</div>
+
+<h4>Education</h4>
+<div class="form-row">
+    <div class="form-group col-md-4">
+            <label for="attendschool">Attends School?</label>
+            <select class="form-control" name="attendschool" id="attendschool">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+    </div>
+
+    <div class="form-group col-md-6">
+         <label for="schoollevel">Level of School</label>
+        <select class="form-control" name="schoollevel" id="schoollevel">
+            <option value="none" selected>N/A</option> 
+            <option value="elementary">Elementary</option>
+            <option value="primary">Primary</option>
+            <option value="secondary">Secondary</option>
+            <option value="tertiary">Tertiary</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Name of School</label>
+    <input type="text" class="form-control" name="schoolname" placeholder="School Name">
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+            <label>School Address Street/Town/City</label>
+            <input type="text" class="form-control" name="schooladdress" id="schooladdress" placeholder="School Address">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="schoolparish">School Address Parish</label>
+        <select onchange="getCoordinates()" class="form-control" name="schoolparish" id="schoolparish">
+            <option value="none" selected disabled hidden> Select Parish </option> 
+            <option value="Kingston">Kingston</option>
+            <option value="St.Andrew">St.Andrew</option>
+            <option value="St.Catherine">St.Catherine</option>
+            <option value="Clarendon">Clarendon</option>
+            <option value="Manchester">Manchester</option>
+            <option value="St.Elizabeth">St.Elizabeth</option>
+            <option value="Westmoreland">Westmoreland</option>
+            <option value="Hanover">Hanover</option>
+            <option value="St.James">St.James</option>
+            <option value="Trelawny">Trelawny</option>
+            <option value="St.Ann">St.Ann</option>
+            <option value="St.Mary">St.Mary</option>
+            <option value="Portland">Portland</option>
+            <option value="St.Thomas">St.Thomas</option>
+        </select>
+    </div>
+    <input type="text" name="lat" id="lat" readonly>
+    <input type="text" name="lon" id="lon" readonly>
+</div>
+    
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>
+
+<script>
+ const form = document.querySelector('form');
+ const provider = new GeoSearch.EsriProvider();
+
+ function getCoordinates() {
+    let lati = document.getElementById('schooladdress').value;
+    let long = document.getElementById('schoolparish').value;
+    //look up the address entered
+    provider.search({query:lati.concat(',').concat(long).concat(',Jamaica')}).then(function (results) {
+    // do something with result;
+    document.getElementById('lat').value = results[0].y;
+    document.getElementById('lon').value = results[0].x;
+    //console.log(results);
+    });
+}
+
+ function getCoordinatesHome() {
+    let lati1 = document.getElementById('address').value;
+    let long1 = document.getElementById('parish').value;
+    //look up the address entered
+    provider.search({query:lati1.concat(',').concat(long1).concat(',Jamaica')}).then(function (results) {
+    // do something with result;
+    document.getElementById('lat1').value = results[0].y;
+    document.getElementById('lon1').value = results[0].x;
+    //console.log(results);
+    });
+}
+
+
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>

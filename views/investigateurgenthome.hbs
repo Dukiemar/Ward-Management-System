@@ -1,0 +1,28 @@
+<h2>CASE REPORT:</h2>
+  <h4>{{firstname}} {{middlename}} {{lastname}}</h4>
+  
+<div class="row">
+    <div class="col-md-3">
+        <h5>Gender:</h5>
+        <p>{{gender}}</p>
+    </div>
+    <!--div class="col-md-3">
+        <h5>Age:</h5>
+        <p>{{dateofbirth}}</p>
+    </div-->
+</div>
+  
+<p>Is this ward showing signs of Abuse? {{homeabuse}}</p>
+
+<p>Is this ward showing signs of Psychological Distress? {{homepsycho}}</p>
+
+<p>Behaviour rating: {{homeattitude}}/5</p>
+
+<h5>Case Notes History:</h5>
+<ol>
+    {{#each hnotes}}
+        <li>
+            <strong>{{this.hnotes}}</strong> <br>Date of entry: {{this.dateofreport}}<br>
+        </li>
+        {{/each}}
+</ol>

@@ -1,0 +1,27 @@
+<span class="blinking2"><strong> MEDICAL REPORTS INDICATE THAT THE FOLLOWING CASES REQUIRE IMMEDIATE INVESTIGATION!</strong></span>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Case ID</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.wardid}}</td>
+            <td>{{this.firstname}}</td>
+            <td>{{this.middlename}}</td>
+            <td>{{this.lastname}}</td>
+            <td>
+                <h3><a class="btn btn-danger" href="/urgent/{{this.wardid}}"><i class="fa fa-exclamation-triangle" ></i>View Report</a></h3>
+            </td>
+            <td>
+                <a href="/update/{{this.id}}"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
